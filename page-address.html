@@ -1,0 +1,48 @@
+<a href="#" class="btn btn-success btn-lg">Reported By</a>
+<a href="#about" class="btn btn-primary btn-lg btn-disabled" disabled="disabled" >Address Reported</a>
+<a href="#contact" class="btn btn-primary btn-lg">Complaint</a>
+<h2>Address to Report</h2>
+    <form name="addressForm" class="form-addressReported" ng-submit="submitForm(addressForm.$valid)" novalidate>
+
+        <!-- HOUSE NUMBER -->
+        <div class="form-group" ng-class="{ 'has-error' : addressForm.vSIT_HSE_NBR.$invalid && !addressForm.vSIT_HSE_NBR.$pristine }">
+            <label>House Number*</label>
+            <input type="text" name="vSIT_HSE_NBR" class="form-control" ng-model="user.vSIT_HSE_NBR" required  ng-minlength="1" ng-maxlength="10">
+            <p ng-show="addressForm.vSIT_HSE_NBR.$invalid && !addressForm.vSIT_HSE_NBR.$pristine" class="help-block">House Number is required.</p>
+        </div>
+
+        <!-- DIRECTION -->
+        <div class="form-group" ng-class="{ 'has-error' : addressForm.direction.$invalid && !addressForm.direction.$pristine }">
+            <label>Direction</label>
+			<select ng-model="direction"> 
+				<option value=""></OPTION>
+                <option value="E">E</OPTION>
+                <option value="N">N</OPTION>
+                <option value="S">S</OPTION>
+                <option value="W">W</OPTION>
+			</select>
+        </div>	
+		         <!-- Street Name -->
+		        <div class="form-group" ng-class="{ 'has-error' : addressFormvSIT_STR_NAME.$invalid && !addressForm.vSIT_STR_NAME.$pristine }">
+            <label>Street Name*</label>
+            <input type="text" name="vSIT_STR_NAME" class="form-control" ng-model="user.vSIT_STR_NAME" required  ng-minlength="3" ng-maxlength="30">
+            <p ng-show="addressForm.vSIT_STR_NAME.$invalid && !addressForm.vSIT_STR_NAME.$pristine" class="help-block">Street name is required.</p>
+        </div>
+		
+        <!-- Unit/Apt # -->
+        <div class="form-group" ng-class="{ 'has-error' : addressForm.vSIT_HSE_NBR_UNIT.$invalid && !addressForm.vSIT_HSE_NBR_UNIT.$pristine }">
+            <label>Unit/Apt #</label>
+            <input type="text" name="vSIT_HSE_NBR_UNIT" class="form-control" ng-model="user.vSIT_HSE_NBR_UNIT" ng-minlength="1" ng-maxlength="10">
+            <p ng-show="addressFormvSIT_HSE_NBR_UNIT.$error.minlength" class="help-block">Unit/Apt # is too short.</p>
+            <p ng-show="addressForm.vSIT_HSE_NBR_UNIT.$error.maxlength" class="help-block">Unit/Apt # is too long.</p>
+        </div>
+		
+        <!-- Suffix -->
+        <div class="form-group" ng-class="{ 'has-error' : addressForm.vSIT_STR_SUFF.$invalid && !addressForm.vSIT_STR_SUFF.$pristine }">
+            <label>Suffix</label>
+            <input type="text" name="vSIT_STR_SUFF" class="form-control" ng-model="user.vSIT_STR_SUFF" ng-minlength="3" ng-maxlength="30">
+            <p ng-show="addressForm.vSIT_STR_SUFF.$error.minlength" class="help-block">Suffix is too short.</p>
+            <p ng-show="addressForm.city.$error.maxlength" class="help-block">Suffix is too long.</p>
+        </div>
+      
+    </form>

@@ -1,0 +1,55 @@
+<a href="#" class="btn btn-success btn-lg">Reported By</a>
+<a href="#about" class="btn btn-success btn-lg">Address Reported</a>
+<a href="#contact" class="btn btn-primary btn-lg btn-disabled " disabled="disabled">Complaint</a>
+<h2>Complaint</h2>
+    <form name="complaintForm" class="form-complaintReported" ng-submit="submitForm(complaintForm.$valid)" novalidate>
+        <!-- TYPE OF PROBLEM -->
+        <div class="form-group" ng-class="{ 'has-error' : complaintForm.problemType.$invalid && !complaintForm.problemType.$pristine }">
+            <label>Type of Problem</label>
+			<select ng-model="problemType"> 
+				<option value="0">MISCELLANEOUS COMPLAINTS</OPTION>
+				<OPTION value="1">ABANDONED BUILDING</OPTION>
+				<OPTION value="2">CHANGES DONE IN AN HISTORICAL AREA</OPTION>
+				<OPTION value="3">ANY ISSUE REGARDING RECYCLING CENTERS</OPTION>
+				<OPTION value="4">ANY ISSUES WITH HOTELS AND MOTELS</OPTION>
+				<OPTION value="5">PROBLEMSR AT NIGHT OR ON WEEKENDS</OPTION>
+				<OPTION value="6">CAR REPAIR AT SINGLE FAMILY DWELLING</OPTION>
+				<OPTION value="7">BLOCKED EXITS PASSAGEWAYS OR WINDOWS</OPTION>
+				<OPTION value="8">BUILDING OR FENCE NEEDS PAINT</OPTION>
+				<OPTION value="9">CONVERTED BUILDING OR PROPERTYE</OPTION>
+				<OPTION value="10">BUILDING OR WALL THAT COULD FALL DOWN</OPTION>
+				<OPTION value="11">BUILDINGS IN NEED OF GENERAL REPAIR</OPTION>
+				<OPTION value="12">BUSINESS OPERATED FROM A HOUSE OR GARAGE</OPTION>
+				<OPTION value="13">CONSTRUCTION WITHOUT PERMITS/INSPECTIONS</OPTION>
+				<OPTION value="15">EARTHQUAKE DAMAGE</OPTION>
+				<OPTION value="16">HIGH FENCES, WALLS OR HEDGES </OPTION>
+				<OPTION value="17">CONVERTED GARAGE</OPTION>
+				<OPTION value="18">POOL GATE/FENCE MISSING/DEFECTIVE</OPTION>
+				<OPTION value="19">GRAFFITI</OPTION>
+			</select>
+        </div>	
+		         <!-- COMPLAINT -->
+		        <div class="form-group" ng-class="{ 'has-error' : complaintForm.complaintFormvSIT_STR_NAME.$invalid && !complaintForm.vSIT_STR_NAME.$pristine }">
+            <label>Street Name*</label>
+            <input type="text" name="vSIT_STR_NAME" class="form-control" ng-model="user.vSIT_STR_NAME" required  ng-minlength="3" ng-maxlength="30">
+            <p ng-show="complaintForm.vSIT_STR_NAME.$invalid && !complaintForm.vSIT_STR_NAME.$pristine" class="help-block">Street name is required.</p>
+        </div>
+		
+        <!-- Unit/Apt # -->
+        <div class="form-group" ng-class="{ 'has-error' : complaintForm.vSIT_HSE_NBR_UNIT.$invalid && !complaintForm.vSIT_HSE_NBR_UNIT.$pristine }">
+            <label>Unit/Apt #</label>
+            <input type="text" name="vSIT_HSE_NBR_UNIT" class="form-control" ng-model="user.vSIT_HSE_NBR_UNIT" ng-minlength="1" ng-maxlength="10">
+            <p ng-show="complaintFormvSIT_HSE_NBR_UNIT.$error.minlength" class="help-block">Unit/Apt # is too short.</p>
+            <p ng-show="complaintForm.vSIT_HSE_NBR_UNIT.$error.maxlength" class="help-block">Unit/Apt # is too long.</p>
+        </div>
+		
+        <!-- Suffix -->
+        <div class="form-group" ng-class="{ 'has-error' : complaintForm.vSIT_STR_SUFF.$invalid && !complaintForm.vSIT_STR_SUFF.$pristine }">
+            <label>Suffix</label>
+            <input type="text" name="vSIT_STR_SUFF" class="form-control" ng-model="user.vSIT_STR_SUFF" ng-minlength="3" ng-maxlength="30">
+            <p ng-show="complaintForm.vSIT_STR_SUFF.$error.minlength" class="help-block">Suffix is too short.</p>
+            <p ng-show="complaintForm.city.$error.maxlength" class="help-block">Suffix is too long.</p>
+        </div>
+
+        <button type="submit" class="btn btn-primary">File Complaint</button>       
+    </form>
